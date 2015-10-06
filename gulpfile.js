@@ -32,6 +32,7 @@ gulp.task('css', function () {
 
   gulp.src(cssSrc)
     .pipe(less({ style: 'expanded'}))
+    .on( 'error', function(e){console.log(e)} )
     .pipe(gulp.dest(cssDst))
     .pipe(gulp.dest(cssMinDst))
     .pipe(rename({ suffix: '.min' }))
@@ -48,10 +49,12 @@ gulp.task('js', function () {
   gulp.src(jsSrc)
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
+    .on( 'error', function(e){console.log(e)} )
     //.pipe(concat('main.js'))
     .pipe(gulp.dest(jsDst))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
+    .on( 'error', function(e){console.log(e)} )
     .pipe(connect.reload())
     .pipe(gulp.dest(jsDst));
 });
@@ -70,7 +73,7 @@ gulp.task('rebuild', ['clean'], function(){
 // 监听任务 运行语句 gulp watch
 gulp.task('default',['webserver'], function(){
   // 监听html
-  gulp.watch('./app/*.html', function(event){
+  gulp.watch('./app/templet/*.html', function(event){
     gulp.run('html');
   })
 
