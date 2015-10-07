@@ -1,14 +1,14 @@
 @font-face {
   font-family: 'iconfont';
-  src: url('//at.alicdn.com/t/font_1444138933_2800848.eot'); /* IE9*/
-  src: url('//at.alicdn.com/t/font_1444138933_2800848.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('//at.alicdn.com/t/font_1444138933_2800848.woff') format('woff'), /* chrome、firefox */
-  url('//at.alicdn.com/t/font_1444138933_2800848.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('//at.alicdn.com/t/font_1444138933_2800848.svg#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('//at.alicdn.com/t/font_1444200540_243488.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1444200540_243488.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1444200540_243488.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1444200540_243488.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1444200540_243488.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 .iconfont {
-    font-family: 'iconfont';
-    font-style: normal;
+  font-family: 'iconfont';
+  font-style: normal;
 }
 .clearfix:after {
   clear: both;
@@ -32,13 +32,35 @@
     padding: 5px 8px;
     font-weight: normal;
   }
+  &.btn-md {
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 8px 10px;
+    font-weight: normal;
+  }
   &.btn-success {
     color: white;
     background-color: #5BAC4F;
+    box-shadow: 0px 0px 2px 0px #5BAC4F;
+    &:hover {
+      box-shadow: 0px 0px 6px 0px #5BAC4F;
+    }
   }
   &.btn-primary {
     color: white;
     background-color: #4096fc;
+    box-shadow: 0px 0px 2px 0px #4096fc;
+    &:hover {
+      box-shadow: 0px 0px 6px 0px #4096fc;
+    }
+  }
+  &.btn-positive {
+    color: white;
+    background-color: #39B6C9;
+    box-shadow: 0px 0px 2px 0px #39B6C9;
+    &:hover {
+      box-shadow: 0px 0px 6px 0px #39B6C9;
+    }
   }
 }
 body {
@@ -47,44 +69,47 @@ body {
   min-width: 1140px;
 }
 .pull-left {
-    float: left!important;
+  float: left!important;
 }
 .pull-right {
-    float: right!important;
+  float: right!important;
 }
 header.nav {
-    height: 55px;
-    background-color: #5086fa;
-    &>div {
-        line-height: 55px;
-        text-align: center;
+  height: 55px;
+  background-color: #5086fa;
+  &>div {
+    line-height: 55px;
+    text-align: center;
+  }
+  .left-role, .right-role {
+    img, p, a{
+      float: left;
+      padding: 0 10px;
+      margin: 0;
+      color: white;
+      font-size: 12px;
+      text-decoration: none;
     }
-    .left-role, .right-role {
-        img, p, a{
-            float: left;
-            padding: 0 10px;
-            margin: 0;
-            color: white;
-            font-size: 12px;
-            text-decoration: none;
-        }
-        a {
-            padding: 0 10px;
-            margin: 10px 0;
-            line-height: 35px;
-            border-radius: 3px;
-            &.active, &:hover {
-                background-color: #4875E0;
-            }
-        }
+    a {
+      padding: 0 10px;
+      margin: 10px 0;
+      line-height: 35px;
+      border-radius: 3px;
+      &.active, &:hover {
+        background-color: #4875E0;
+      }
     }
-    .left-role img {
-        margin: 12px 18px;
-    }
+  }
+  .left-role img {
+    margin: 12px 18px;
+  }
 }
 .container {
-    width: 1140px;
-    margin: auto;
+  width: 1140px;
+  margin: auto;
 }
 
-@import (less) 'picture-detail';
+@import 'picture-detail';
+@import 'picture-list';
+@import 'component/contact';
+@import 'component/uploader';

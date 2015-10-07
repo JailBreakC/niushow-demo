@@ -17,7 +17,7 @@ gulp.task('webserver', function() {
 });
 // HTML处理
 gulp.task('html', function() {
-  var htmlSrc = './app/templet/*.html',
+  var htmlSrc = './app/templet/**/*.html',
     htmlDst = './build/templet/';
 
   gulp.src(htmlSrc)
@@ -26,7 +26,7 @@ gulp.task('html', function() {
 });
 // 样式处理
 gulp.task('css', function () {
-  var cssSrc = './app/less/*.less',
+  var cssSrc = './app/less/**/*.less',
     cssDst = './app/css/',
     cssMinDst = './build/css/';
 
@@ -43,7 +43,7 @@ gulp.task('css', function () {
 
 // js处理
 gulp.task('js', function () {
-  var jsSrc = './app/js/*.js',
+  var jsSrc = './app/js/**/*.js',
     jsDst ='./build/js/';
 
   gulp.src(jsSrc)
@@ -65,7 +65,7 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
-// 重建任务 清空图片、样式、js并重建 
+// 重建任务 清空样式、js并重建 
 gulp.task('rebuild', ['clean'], function(){
   gulp.start('html','css','js');
 });
@@ -73,17 +73,17 @@ gulp.task('rebuild', ['clean'], function(){
 // 监听任务 运行语句 gulp watch
 gulp.task('default',['webserver'], function(){
   // 监听html
-  gulp.watch('./app/templet/*.html', function(event){
+  gulp.watch('./app/templet/**/*.html', function(event){
     gulp.run('html');
   })
 
   // 监听css
-  gulp.watch('./app/less/*.less', function(){
+  gulp.watch('./app/less/**/*.less', function(){
     gulp.run('css');
   });
 
   // 监听js
-  gulp.watch('./app/js/*.js', function(){
+  gulp.watch('./app/js/**/*.js', function(){
     gulp.run('js');
   });
 });

@@ -16,7 +16,11 @@
     "url": "https://github.com/JailBreakC/niushow-demo/issues"
   },
   "homepage": "https://github.com/JailBreakC/niushow-demo#readme",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.13.3",
+    "qiniu": "^6.1.8",
+    "qn": "^1.0.1"
+  },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-clean": "^0.3.1",

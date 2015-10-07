@@ -1,0 +1,52 @@
+<div>
+  <div class="uploader {{isOpen?'open':''}}">
+    <div class="title">
+      <h4>一共上传 {{imgList.length}} 张照片</h4>
+      <div ng-click="isOpen=!isOpen" class="options btn btn-primary btn-xs"><i class="iconfont">&#xe606;</i></div>
+    </div>
+    <table class="pics">
+      <thead>
+        <tr>
+          <th width="10">#</th>
+          <th>名称</th>
+          <th>大小</th>
+          <th>进度</th>
+        </tr>
+      </thead>
+    </table>
+    <div class="pics-ct">
+      <table class="pics">
+        <tbody>
+          <tr ng-repeat="img in imgList">
+            <td>{{$index + 1}}</td>
+            <td><img ng-src="{{img.src}}" class="thumb" alt="pic">{{img.name}}</td>
+            <td>{{img.size}} MB</td>
+            <td>
+              <div class="progress-bar">
+                <i style="width:{{img.progress*2}}px" class="_progress"></i>
+                <i class="_percent">{{img.progress}}%</i>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="actions">
+      <form id="uploaderForm" method="post" action="http://upload.qiniu.com/">
+        <input id="uploadHander" multiple="multiple" type="file">
+      </form>
+      <i ng-click="uploadHander()" class="iconfont choose-ico">&#xe607;</i>
+      <div class="choose"  >
+        选择相册
+        <i class="iconfont">&#xe608;</i>
+      </div>
+      <div ng-click="startUpload()" class="btn btn-sm btn-positive upload-btn">
+        {{uploading?'上传中':'开始上传'}}
+      </div>
+    </div>
+  </div>
+  <div class="opener {{isOpen?'close':''}}" ng-click="isOpen=!isOpen">
+    点击上传照片
+  </div>  
+</div>

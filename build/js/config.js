@@ -7,8 +7,13 @@ app.config([
       controller: 'mainCtrl'
     }).state('picture.detail', {
       url: '/detail',
-      templateUrl: '/app/templet/picture-detail.html'
+      templateUrl: '/app/templet/picture-detail.html',
+      controller: 'detailCtrl'
+    }).state('picture.list', {
+      url: '/list',
+      templateUrl: '/app/templet/picture-list.html',
+      controller: 'listCtrl'
     });
-    $urlRouterProvider.otherwise('/picture');
+    $urlRouterProvider.otherwise('/picture/list');
   }
 ]);
